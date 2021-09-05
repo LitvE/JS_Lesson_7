@@ -249,7 +249,7 @@ const arr2 = [1, 2, [3, 4, 5, 6], 7, 8, 9, 10];
 const [,,[,, el5]] = arr2;
 
 //Odjects
-
+/*
 const user = {
     name: 'Tom',
     surname: 'Fox',
@@ -263,7 +263,7 @@ const user = {
         bookName: "JS",
         year: "2010", 
     },
-}
+}*/
 /*
 const {name} = user;
 console.log(name);
@@ -271,7 +271,7 @@ const{book:{cover:{pages}}} = user;
 console.log(pages);
 console.log(user.book.cover.pages);
 */
-
+/*
 function getUserFullName1 (user){
     return `${user.name} ${user.surname}`;
 }
@@ -283,3 +283,114 @@ function getUserFullName2 (user){
 
 console.log(getUserFullName1(user));
 console.log(getUserFullName2(user));
+*/
+/*
+const user = {
+    name: 'Tom',
+    surname: 'Fox',
+    age: 20,
+    lang:['ukr', 'rus', 'eng'],
+    car: {
+        name: 'Toyota',
+        model: 'Camry',
+        year: 2019,
+    },
+    greeting1: function () {
+        console.log('Hello!');
+    },
+    greeting2: function () {
+        console.log(`Hello, ${this.name}!`);
+    },
+}
+user.greeting1();
+user.greeting2();
+
+function stud(name, surname){
+    this.name = name;
+    this.surname = surname;
+}
+
+const student1 = new stud('Vasya', 'Petrov');
+const student2 = new stud('Masha', 'Sidorova');
+const student3 = new stud('Petya', 'Ivanov');
+
+console.log(student1);
+console.log(student2);
+console.log(student3);
+
+function rect(size1, size2){
+    this.a = size1;
+    this.b = size2;
+    this.square = function(){
+        return this.a * this.b;
+    };
+};
+
+const rect1 = new rect(2, 5);
+console.log(rect1);
+console.log(rect1.square());
+
+
+function purchase (count, price){
+    this.count = count;
+    this.price = price;
+    this.sum = 0;
+    this.sale = function(totalSum, percent){
+        this.sum = this.count * this.price;
+        if(this.sum > totalSum){
+            return (this.count * this.price * (1 - (percent/100)));
+        }
+        else{
+            return this.sum;
+        }
+    };
+};
+
+const purchase1 = new purchase(5,200);
+console.log(purchase1.sale(500, 3));
+*/
+
+// Классы
+/*
+class cat {
+    constructor(name){
+        this.name = name;
+    }
+}
+
+const Barsik = new cat('Barsik');
+const Murka = new cat('Murka');
+
+console.log(Barsik);
+console.log(Murka);
+
+class Student {
+    constructor(name, surname, age){
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+    }
+
+    printFullName(){
+        console.log(`${this.name} ${this.surname}`);
+    };
+}
+
+const stud1 = new Student('Ivan', 'Ivanov', 21);
+stud1.printFullName();
+*/
+
+class Triangle {
+    constructor(a,  h){
+        this.a = a;
+        this.h = h;
+
+    }
+
+    getArea(){
+        return (1/2)*(this.a * this.h);
+    };
+}
+
+const tr1 = new Triangle(5, 2);
+console.log(tr1.getArea());
