@@ -111,7 +111,7 @@ console.log(resultFunction2());
 console.log(resultFunction2());
 console.log(resultFunction2());
 console.log(resultFunction2());
-
+//замыкание
 function test(){
     let x = 10;
     return function(){
@@ -120,7 +120,7 @@ function test(){
     };
 };
 */
-
+/*
 function f(){
     var x = 0;
 };
@@ -130,9 +130,9 @@ if(false){
 }
 
 f();
-
+*/
 // каждый раз при вызове функции создается новое лексическое окружение
-
+/*
 const test = 0;
 
 function f(){
@@ -142,3 +142,42 @@ function f(){
 };
 
 f();
+*/
+
+//Рекурсия
+//Решение без рекурсии
+/*
+function pow(x, n) {
+    let result = 1;
+
+    for (let i = 0; i < n; i++) {
+      result *= x;
+    }
+  
+    return result;
+}
+*/
+//Решение с рекурсией
+/*
+function pow2(x, n) {
+    if (n == 1) {
+      return x;
+    } else {
+      return x * pow2(x, n - 1);
+    }
+}
+
+console.log(pow(2,5));
+console.log(pow2(2,5));
+*/
+
+function fib(n) {
+    if(n <= 1){
+        return n;
+    }else {
+        return fib(n - 1) + fib(n - 2);
+    }
+    //return n <= 1 ? n : fib(n - 1) + fib(n - 2);
+}
+
+console.log(fib(8));
