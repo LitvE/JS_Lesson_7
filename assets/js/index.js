@@ -170,7 +170,7 @@ function pow2(x, n) {
 console.log(pow(2,5));
 console.log(pow2(2,5));
 */
-
+/*
 function fib(n) {
     if(n <= 1){
         return n;
@@ -181,3 +181,105 @@ function fib(n) {
 }
 
 console.log(fib(8));
+*/
+
+//Заморозка Объекта - Object.freeze()
+/*
+const user = Object.freeze({
+    name: 'John',
+    surname: 'Fox',
+    age: 20,
+    isMarried: false,
+});
+*/
+//назначение прав доступа
+
+const ROLES = Object.freeze({
+    ADMIN: 'ADMIN',
+    MODERATOR: 'MODERATOR',
+    USER: 'USER',
+});
+
+const ACTIONS = Object.freeze({
+    READ: 'READ',
+    CREAT: 'CREAT',
+    MODIFY: 'MODIFY',
+    DELETE: 'DELETE',
+});
+/*
+const user1 = {
+    login: 'user1',
+    role_access: ROLES.USER,
+    action: ACTIONS.READ
+}
+*/
+/*
+let rights = new Map();
+
+rights.set(ROLES.USER, [ACTIONS.READ]);
+rights.set(ROLES.MODERATOR, [ACTIONS.READ, ACTIONS.MODIFY]);
+rights.set(ROLES.ADMIN, [ACTIONS.READ, ACTIONS.CREAT, ACTIONS.MODIFY, ACTIONS.DELETE]);
+*/
+/*
+rights.set(ACTIONS.READ, ...ROLES);
+rights.set(ACTIONS.MODIFY, [ROLES.MODERATOR, ROLES.ADMIN]);
+rights.set(ACTIONS.CREAT, [ROLES.ADMIN]);
+rights.set(ACTIONS.DELETE, [ROLES.ADMIN]);
+*/
+/*
+function checkPermission (role){
+    if(rights.has(role)){
+        return rights.values(role);
+    }
+    return false;
+}
+*/
+/*
+function checkPermission2(action, role){
+    if(rights.has(action)){
+        return rights.get(action).includes(role);
+    }
+    return false;
+}*/
+
+const arr =[1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const [el1, el2, ...rest] = arr;
+
+const arr2 = [1, 2, [3, 4, 5, 6], 7, 8, 9, 10];
+const [,,[,, el5]] = arr2;
+
+//Odjects
+
+const user = {
+    name: 'Tom',
+    surname: 'Fox',
+    age: 20,
+    book:{
+        cover:{
+            pages: 200,
+            format: "20x45",
+            copies: 2000,
+        },
+        bookName: "JS",
+        year: "2010", 
+    },
+}
+/*
+const {name} = user;
+console.log(name);
+const{book:{cover:{pages}}} = user;
+console.log(pages);
+console.log(user.book.cover.pages);
+*/
+
+function getUserFullName1 (user){
+    return `${user.name} ${user.surname}`;
+}
+
+function getUserFullName2 (user){
+    const {name, surname} = user;
+    return `${name} ${surname}`;
+}
+
+console.log(getUserFullName1(user));
+console.log(getUserFullName2(user));
